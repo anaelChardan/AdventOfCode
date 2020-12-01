@@ -1,12 +1,17 @@
-import arrow.core.Option
-import arrow.core.Tuple3
-import arrow.core.toOption
+import arrow.core.*
 
-fun compute(input: List<Int>): Option<Int> {
-    return input
-        .cartesianProduct(input)
-        .map { Tuple3(it.first, it.second, it.first + it.second) }
+fun Day1Part1(input: Sequence<Int>): Option<Int> {
+    return cartesianProduct(input, input)
+        .map { (a, b) -> Tuple3(a, b, a + b) }
         .find { it.c == 2020 }
         .toOption()
-        .map { it.a * it.b }
+        .map { (a, b) -> a * b }
+}
+
+fun Day1Part2(input: Sequence<Int>): Option<Int> {
+    return cartesianProduct(input, input, input)
+        .map { (a, b, c) -> Tuple4(a, b, c, a + b + c) }
+        .find { it.d == 2020 }
+        .toOption()
+        .map { (a, b, c, _) -> a * b * c }
 }
