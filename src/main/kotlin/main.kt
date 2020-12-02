@@ -1,4 +1,8 @@
 fun main(args: Array<String>) {
+    day2Problem()
+}
+
+fun day1Problem() {
     val lines = readFileAsLines(
         "src/main/resources/DayOne.txt"
     ).map { it.toInt() }
@@ -12,4 +16,9 @@ fun main(args: Array<String>) {
 
     val result2 = Day1Part2(linesTwo.asSequence())
     println(result2)
+}
+
+fun day2Problem() {
+    println(day2Input().countValidPasswordFirstPolicy())
+    println(day2Input().countValidPasswordSecondPolicy())
 }
